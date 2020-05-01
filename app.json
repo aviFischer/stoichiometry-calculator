@@ -1,0 +1,17 @@
+{
+  "name": "stoichiometry-calculator",
+  "displayName": "stoichiometry-calculator",
+  "expo": {
+    "name": "stoichiometry-calculator",
+    "slug": "stoichiometry-calculator",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
