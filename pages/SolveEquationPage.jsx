@@ -17,26 +17,27 @@ const TextInputRow = props => {
     )
 }
 
-const ButtonRow = props => {
+function ButtonRow ({ navigation }) {
     return (
-        <View style = {styles.row}>
+        <View style= {styles.row}>
             <Button
-                title = 'button1'
-                color = '#BBB'
+                title='button1'
+                color='#BBB'
+                onPress={() => navigation.navigate('Combustion Analysis')}
             />
             <Button
-                title = 'button1'
-                color = '#BBB'
+                title='button1'
+                color='#BBB'
             />
         </View>
     )
 }
 
-const SolveEquationPage = props => {
+function SolveEquationPage ({ navigation }) {
     return (
         <View style = {styles.container}>
             <TextInputRow/>
-            <ButtonRow/>
+            <ButtonRow navigation={navigation}/>
         </View>
     );
 };
