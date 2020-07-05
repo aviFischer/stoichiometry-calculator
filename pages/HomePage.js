@@ -13,6 +13,7 @@ function HomePage ({ navigation }) {
                     title='Balance Equation'
                     color='#ace'
                     onPress={() => navigation.navigate('Balance Equation')}
+                    //onPress={()=> console.log('pressed')}
                 />
                 <Button
                     title='Solve Equation'

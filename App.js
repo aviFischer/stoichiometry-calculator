@@ -3,7 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator, HeaderBackground } from '@react-navigation/stack';
 
-import SolveEquationPage from './pages/SolveEquationPage';
+import BalanceEquationPage from './pages/BalanceEquationPage';
+import SolveEquationPage from './pages/SolveEquationPage'
 import CombustionAnalysisPage from './pages/CombustionAnalysisPage';
 import SettingsPage from './pages/SettingsPage'
 import HomePage from './pages/HomePage'
@@ -15,6 +16,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
         <Stack.Screen name='Home' component={HomePage}/>
+        <Stack.Screen name='Balance Equation' component={BalanceEquationPage} />
         <Stack.Screen name='Solve Equation' component={SolveEquationPage} />
         <Stack.Screen name='Combustion Analysis' component={CombustionAnalysisPage} />
         <Stack.Screen name='Settings' component={SettingsPage} />
@@ -22,3 +24,10 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+/*
+export default function App() {
+  return(
+    <Text>hello, world</Text>
+  )
+}*/
