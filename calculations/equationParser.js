@@ -1,21 +1,32 @@
-class EquationParser {
-    
-    static parseEquation(input) {
-        var compounds = input.replace(' ','').split('+')
-        var output = {}
-        for(compound in compounds){
-            var number;
-            for(var i = 0; i < compound.length; i ++){
-                if(! isNaN(compound.charAt(i))){
-                    number += compound.charAt(i)
-                } else {
-                    compound = compound.substring(i)
-                    if(number.length == 0){
-                        number == '1';
-                    }
-                    output.compound = parseInt(number);
+
+export default class EquationParser {
+
+    static parseSkeletonEquation(input) {
+        input = input.replace(/\s/g,'')
+        var compounds = input.split('+')
+        var output = []
+        console.log(compounds)
+        for(var compound of compounds){
+            var atoms = {}
+            var index = 0
+            while(index < compound.length){
+                var element = compound.charAt(index)
+                index ++
+                while(/[a-z]/.test(compound.charAt(index))){
+                    element += compound.charAt(index)
+                    index ++
                 }
+                var number = ''
+                while(/[0-9]/.test(compound.charAt(index))){
+                    number += compound.charAt(index)
+                    index ++
+                }
+                if(number == ''){
+                    number = '1'
+                }
+                atoms[element] = parseInt(number)
             }
+            output.push(atoms)
         }
         return output
     }

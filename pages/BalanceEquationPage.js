@@ -7,9 +7,12 @@ export default class BalanceEquationPage extends React.Component {
     constructor(){
         super()
         this.state = {
-            textValue: 'Press balance to see results'
+            textValue: 'Press balance to see results',
+            reactants: '',
+            products: ''
         }
         this.onPressBalance = this.onPressBalance.bind(this)
+        this.onPressClear = this.onPressClear.bind(this)
         this.TextInputRow = this.TextInputRow.bind(this)
         this.ButtonRow = this.ButtonRow.bind(this)
         this.OuputRow = this.OuputRow.bind(this)
@@ -17,7 +20,14 @@ export default class BalanceEquationPage extends React.Component {
         
     onPressBalance () {
         this.setState({
-            textValue: 'The button has been pressed'
+            textValue: JSON.stringify(EquationParser.parseSkeletonEquation(this.state.products))
+        })
+    }
+
+    onPressClear () {
+        this.setState({
+            reactants: '',
+            products: ''
         })
     }
 
@@ -27,11 +37,15 @@ export default class BalanceEquationPage extends React.Component {
                 <TextInput 
                     style = {styles.textInput}
                     placeholder = 'Reactants'
+                    value = {this.state.reactants}
+                    onChangeText = {(reactants) => this.setState({reactants})}
                 />
                 <Text style = {{padding: 10}}>→</Text>
                 <TextInput 
                     style = {styles.textInput}
                     placeholder = 'Products'
+                    value = {this.state.products}
+                    onChangeText = {(products) => this.setState({products})}
                 />
             </View>
         )
@@ -48,6 +62,7 @@ export default class BalanceEquationPage extends React.Component {
                 <Button
                     title='Clear'
                     color='#BBB'
+                    onPress = {() => this.onPressClear()}
                 />
             </View>
         )
@@ -57,9 +72,9 @@ export default class BalanceEquationPage extends React.Component {
         return (
             <View style = {styles.row}>
                 <TextInput 
-                    style = {styles.textInput}
+                    style = {styles.output}
                     editable = {false}
-                    placeholder = {this.state.textValue}
+                    defaultValue = {this.state.textValue}
                 />
             </View>
         )
@@ -96,6 +111,10 @@ styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 1,
         padding: 10,
+        fontSize: 20
+    },
+    output: {
+        height: 40,
         fontSize: 20
     }
 })
