@@ -5,8 +5,7 @@ function HomePage ({ navigation }) {
     return(
         <View style={styles.container}>
             <View style={styles.styleContainer}>
-                <Text style={styles.text}>Welcome to Stoichiometry Calculator
-                What would you like to do?</Text>
+                <Text style={styles.text}>Welcome to Stoichiometry Calculator. What would you like to do?</Text>
             </View>
             <View style={styles.buttonContainer}>
                 <Button
