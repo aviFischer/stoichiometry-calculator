@@ -17,6 +17,7 @@ class CombustionAnalyzer{
     }
 
     analyze(){
+        
         var massC = this.co2 * C_IN_CO2
         var massH = this.h2o * H_IN_H2O
         var massO = this.mass - massC - massH
@@ -25,12 +26,24 @@ class CombustionAnalyzer{
         var molesH = massH / MOLAR_MASS_H
         var molesO = massO / MOLAR_MASS_O
 
-        var totalMoles = molesC + molesH + molesO
-        var fractionC = molesC / totalMoles
-        var fractionH = molesH / totalMoles
-        var fractionO = molesO / totalMoles
+        console.log(molesO)
 
-        return molesC + ' ' + molesH + ' ' + molesO
+        var smallest
+
+        if(molesO / (molesO + molesC + molesH) >= 0.01)
+        {
+            smallest = Math.min(molesC, molesH, molesO)
+        } else {
+            smallest = Math.min(molesC, molesH)
+        }
+
+        var outputString = 'C' + Math.round(molesC / smallest) + 'H' + Math.round(molesH / smallest)
+        if(molesO / (molesO + molesC + molesH) >= 0.01)
+        {
+            outputString += 'O' + Math.round(molesO / smallest)
+        }
+
+        return outputString
 
     }
 }

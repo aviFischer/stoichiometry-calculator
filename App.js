@@ -6,7 +6,7 @@ import { createStackNavigator, HeaderBackground } from '@react-navigation/stack'
 import BalanceEquationPage from './pages/BalanceEquationPage';
 import SolveEquationPage from './pages/SolveEquationPage'
 import CombustionAnalysisPage from './pages/CombustionAnalysisPage';
-import SettingsPage from './pages/SettingsPage'
+import CalculateMolarMassPage from './pages/CalculateMolarMassPage'
 import HomePage from './pages/HomePage'
 
 const Stack = createStackNavigator();
@@ -19,7 +19,7 @@ export default function App() {
         <Stack.Screen name='Balance Equation' component={BalanceEquationPage} />
         <Stack.Screen name='Solve Equation' component={SolveEquationPage} />
         <Stack.Screen name='Combustion Analysis' component={CombustionAnalysisPage} />
-        <Stack.Screen name='Settings' component={SettingsPage} />
+        <Stack.Screen name='Calculate Molar Mass' component={CalculateMolarMassPage}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

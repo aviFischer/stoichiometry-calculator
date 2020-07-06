@@ -22,7 +22,7 @@ class CombustionAnalysisPage extends React.Component {
     onPressAnalyze () {
         var newValue = ''
         if(CombustionAnalyzer.checkInput(this.state.co2, this.state.h2o, this.state.mass)){
-            analyzer = new CombustionAnalyzer(this.state.co2, this.state.h2o, this.state.mass)
+            var analyzer = new CombustionAnalyzer(this.state.co2, this.state.h2o, this.state.mass)
             newValue = analyzer.analyze()
         } else {
             newValue = 'One or more inputs are not a number'
@@ -155,7 +155,7 @@ styles = StyleSheet.create({
         fontSize: 20
     },
     output: {
-        height: 40,
+        height: 42,
         fontSize: 20,
         flexDirection: 'row',
     }

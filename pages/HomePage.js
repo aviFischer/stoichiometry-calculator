@@ -25,9 +25,9 @@ function HomePage ({ navigation }) {
                     onPress={() => navigation.navigate('Combustion Analysis')}
                 />
                 <Button
-                    title='Settings'
+                    title='Calculate Molar Mass'
                     color='#ace'
-                    onPress={() => navigation.navigate('Settings')}
+                    onPress={() => navigation.navigate('Calculate Molar Mass')}
                 />
             </View>
         </View>
