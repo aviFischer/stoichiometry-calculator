@@ -108,7 +108,8 @@ styles = StyleSheet.create({
         fontSize: 20
     },
     output: {
-        height: 40,
-        fontSize: 20
+        height: 42,
+        fontSize: 20,
+        color: 'black'
     }
 })

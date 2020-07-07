@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import { Text, View, StyleSheet, Button, TextInput} from 'react-native'
 import EquationParser from '../calculations/equationParser'
-import RowReducer from '../calculations/rowReducer'
+import EquationBalancer from '../calculations/equationBalancer'
 
 export default class BalanceEquationPage extends React.Component {
 
@@ -22,9 +22,8 @@ export default class BalanceEquationPage extends React.Component {
     onPressBalance () {
         var products = EquationParser.parseSkeletonEquation(this.state.products)
         var reactants = EquationParser.parseSkeletonEquation(this.state.reactants)
-        console.log(RowReducer.toRREF([[1,2,3,1],[4,5,6,1],[7,8,9,1]]))
         this.setState({
-            textValue: JSON.stringify(EquationParser.parseSkeletonEquation(this.state.products))
+            textValue: JSON.stringify(EquationBalancer.balance(reactants, products))
         })
     }
 
@@ -118,7 +117,8 @@ styles = StyleSheet.create({
         fontSize: 20
     },
     output: {
-        height: 40,
-        fontSize: 20
+        height: 42,
+        fontSize: 20,
+        color: 'black'
     }
 })

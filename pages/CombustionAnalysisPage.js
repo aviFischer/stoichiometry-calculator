@@ -157,6 +157,6 @@ styles = StyleSheet.create({
     output: {
         height: 42,
         fontSize: 20,
-        flexDirection: 'row',
+        color: 'black'
     }
 })
