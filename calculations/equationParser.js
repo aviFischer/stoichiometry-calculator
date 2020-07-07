@@ -5,7 +5,6 @@ export default class EquationParser {
         input = input.replace(/\s/g,'')
         var compounds = input.split('+')
         var output = []
-        console.log(compounds)
         for(var compound of compounds){
             output.push(EquationParser.parseCompound(compound))
         }
@@ -36,7 +35,6 @@ export default class EquationParser {
                 atoms[element] = parseInt(number)
             }
         }
-        console.log(atoms)
         return atoms
     }
 
