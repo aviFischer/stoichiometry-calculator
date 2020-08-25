@@ -20,10 +20,6 @@ class EquationBalancer{
             }
         }
 
-        console.log(elementList)
-        console.log(reactants)
-        console.log(products)
-
         var matrix = []
 
         // creates the matrix
@@ -67,11 +63,7 @@ class EquationBalancer{
                 }
                 multiplier *= tempMultiplier
             }
-            console.log(multiplier)
-            console.log(lastColumn)
         }
-
-        console.log(multiplier)
 
         var outputString = ''
         //assembles the string
