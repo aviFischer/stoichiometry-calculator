@@ -20,11 +20,17 @@ export default class BalanceEquationPage extends React.Component {
     }
         
     onPressBalance () {
-        var products = EquationParser.parseSkeletonEquation(this.state.products)
-        var reactants = EquationParser.parseSkeletonEquation(this.state.reactants)
-        this.setState({
-            textValue: JSON.stringify(EquationBalancer.balance(reactants, products))
-        })
+        if(this.state.reactants != '' && this.state.products != '') {
+            var products = EquationParser.parseSkeletonEquation(this.state.products)
+            var reactants = EquationParser.parseSkeletonEquation(this.state.reactants)
+            this.setState({
+                textValue: EquationBalancer.balance(reactants, products)
+            })
+        } else {
+            this.setState({
+                textValue: 'Please type your equation'
+            })
+        }
     }
 
     onPressClear () {
