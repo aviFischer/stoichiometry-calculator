@@ -33,8 +33,6 @@ class RowReducer {
             }
         }
 
-        console.log('after row swapping: ' + matrix)
-
         for(var col = 0; col < Math.min(rows, cols); col ++){
             if(matrix[col][col] != 1 && matrix[col][col] != 0){
                 RowReducer.multiplyRow(matrix, col, 1 / matrix[col][col])
@@ -44,10 +42,7 @@ class RowReducer {
                     RowReducer.addRow(matrix, row, col, matrix[row][col] / matrix[col][col] * -1)
                 }
             }
-            console.log(matrix)
         }
-
-        console.log('in REF' + matrix)
     }
 
     static toRREF(matrix){

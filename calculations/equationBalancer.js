@@ -42,11 +42,7 @@ class EquationBalancer{
             matrix.push(row)
         }
 
-        console.log('initial matrix: ' + matrix)
-
         matrix = RowReducer.toRREF(matrix)
-
-        console.log('RREF: ' + matrix)
 
         //gets the last column of the matrix and determines what to multiply quantities by
         var lastColumn = []

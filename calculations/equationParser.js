@@ -1,9 +1,4 @@
-class InvalidInputError extends Error{
-    constructor(message){
-        super(message)
-        this.name = "InvalidInputError"
-    }
-}
+import InvalidInputError from "../errors/invalidInputError"
 
 export default class EquationParser {
 
@@ -54,20 +49,23 @@ export default class EquationParser {
         }
         var compounds = input.split('+')
         var output = []
+        console.log(compounds)
         for(var compound of compounds){
+            console.log(compound)
             var number = ''
             index = 0
             while(/[0-9]/.test(compound.charAt(index))){
+                number += compound.charAt(index)
                 index ++
-                number += compound.charAt(0)
             }
             if(number == '')
                 number = '1'
-            parsedCompound = EquationParser.parseCompound(compound.substring(index + 1))
+            parsedCompound = EquationParser.parseCompound(compound.substring(index))
             parsedCompound['amount'] = parseInt(number)
-            output.push[parsedCompound]
+            output.push(parsedCompound)
         }
 
+        console.log(output)
         return output
     }
 

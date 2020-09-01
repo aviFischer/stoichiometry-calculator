@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {View, Text, TextInput, Switch, StyleSheet, Button} from 'react-native'
+import EquationParser from '../calculations/equationParser'
 
 export default class SolveEquationPage extends React.Component{
 
@@ -74,7 +75,9 @@ export default class SolveEquationPage extends React.Component{
         )
     }
 
-    onPressSolve(){}
+    onPressSolve(){
+        EquationParser.parseBalancedEquation(this.state.reactants)
+    }
 
     onPressClear(){
         this.setState({

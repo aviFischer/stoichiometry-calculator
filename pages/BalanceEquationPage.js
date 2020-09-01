@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react';
 import { Text, View, StyleSheet, Button, TextInput} from 'react-native'
 import EquationParser from '../calculations/equationParser'
 import EquationBalancer from '../calculations/equationBalancer'
+import InvalidInputError from '../errors/invalidInputError'
 
 export default class BalanceEquationPage extends React.Component {
 
@@ -21,11 +22,25 @@ export default class BalanceEquationPage extends React.Component {
         
     onPressBalance () {
         if(this.state.reactants != '' && this.state.products != '') {
-            var products = EquationParser.parseSkeletonEquation(this.state.products)
-            var reactants = EquationParser.parseSkeletonEquation(this.state.reactants)
-            this.setState({
-                textValue: EquationBalancer.balance(reactants, products)
-            })
+            try{
+                var products = EquationParser.parseSkeletonEquation(this.state.products)
+                var reactants = EquationParser.parseSkeletonEquation(this.state.reactants)
+                this.setState({
+                    textValue: EquationBalancer.balance(reactants, products)
+                })
+            } catch(err) {
+                if(err instanceof InvalidInputError) {
+                    console.log(err.message)
+                    this.setState({
+                        textValue: err.message
+                    })
+                } else {
+                    console.log(err.message)
+                    this.setState({
+                        textValue: 'An unknown error occured'
+                    })
+                }
+            }
         } else {
             this.setState({
                 textValue: 'Please type your equation'
